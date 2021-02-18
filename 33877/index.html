@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+    
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144166423-1"></script>
+<script>
+  var host = window.location.hostname;
+  if (host != "localhost" || true == false) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144166423-1');
+  }
+</script>
+
+
+
+
+
+
+
+    
+    
+          
+
+    
+    
+    
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+            <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+        
+    
+         
+            <script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+            <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        
+    
+        
+    
+
+    
+    
+    <title>
+        
+            Edge Chromium相关问题汇总 | 小蜗熊的笔记本
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content id="page">
+                <v-container fluid>
+                    <v-row>
+                        <v-col cols="2" class="d-none d-md-block">
+                            <div id="sidebar" class="float-right">
+    <a href="/" rel="home">
+        <v-avatar size=96>
+            <img id="logo" src="/images/avatar.webp">     
+        </v-avatar> 
+    </a>
+    <v-divider></v-divider>
+    <div class="mini-menu">
+        <v-btn icon href="/">
+            <v-icon>home</v-icon>
+        </v-btn>
+        <v-btn icon href="/categories/">
+            <v-icon>folder</v-icon>
+        </v-btn>
+        <v-btn icon href="/tags/">
+            <v-icon>bookmark</v-icon>
+        </v-btn>
+        <v-btn icon @click="SetNightMode">
+            <v-icon>{{ nightMode }}</v-icon>
+        </v-btn>
+    </div>
+    <v-list id="main-menu" class="font-weight-bold" flat>
+        
+            
+            <v-list-item href="/archives/" link>
+            <v-list-item-icon><v-icon>archive</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                归档
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="/about/" link>
+            <v-list-item-icon><v-icon>account_circle</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                关于
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="https://garybear.cn/" link>
+            <v-list-item-icon><v-icon>rss_feed</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                我的博客
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="https://garybear.cn/hexo-theme-insulin/#/" link>
+            <v-list-item-icon><v-icon>insert_drive_file</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                说明文档
+            </v-list-item-content>
+            </v-list-item>
+        
+    </v-list>
+    <v-divider></v-divider>
+    
+        <div class="post-toc">
+            <a href="/33877/" class="toc-header">文章目录</a>
+            <div class="toc-content">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#卸载Edge-Chromium"><span class="toc-number">1.</span> <span class="toc-text">卸载Edge Chromium</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启用IE模式"><span class="toc-number">2.</span> <span class="toc-text">启用IE模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方式一"><span class="toc-number">2.1.</span> <span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式二"><span class="toc-number">2.2.</span> <span class="toc-text">方式二</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    
+
+    <div id="footer">
+        <div class="footer-social">
+            
+                
+                <v-btn icon href="mailto:kb1000fx@gmail.com" target="_blank">
+                    <v-icon>fas fa-envelope</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://github.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-github</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://steamcommunity.com/profiles/76561198346798163" target="_blank">
+                    <v-icon>fab fa-steam</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://weibo.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-weibo</v-icon>
+                </v-btn>
+            
+        </div>
+        <v-divider></v-divider>
+        <div class="footer-content">
+            
+                <span id="busuanzi_container_site_uv" style="display: none;"> 
+                    总访客量 <span id="busuanzi_value_site_uv"></span>
+                </span>
+                <br>
+            
+            <span>Theme: <a href="https://github.com/kb1000fx/hexo-theme-insulin" target="_blank" rel="noopener">Insulin</a></span><br>
+            <span>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span><br>
+            <span>
+                &copy; 2015 - 2021 
+                机智小蜗熊
+            </span>
+        </div>
+    </div>
+</div>
+
+                        </v-col>
+                        <v-col cols="12" md="10">
+                            <v-row>
+  <v-col cols="12" md="8" align-self="end">
+    <div id="site-header">
+      <div id="site-title">
+        <a href="/" rel="home">小蜗熊的笔记本</a>
+      </div>
+      <div id="site-description">记录各种零碎的知识</div>
+      <div id="mobile-menu" class="d-block d-md-none">
+        <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-inner-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,true)"></v-text-field>
+        <div class="mobile-mini-menu">
+          <v-btn icon href="/">
+              <v-icon>home</v-icon>
+          </v-btn>
+          <v-btn icon href="/categories/">
+              <v-icon>folder</v-icon>
+          </v-btn>
+          <v-btn icon href="/tags/">
+              <v-icon>bookmark</v-icon>
+          </v-btn>
+          <v-btn icon @click="SetNightMode">
+              <v-icon>{{ nightMode }}</v-icon>
+          </v-btn>
+          
+            
+            <v-btn icon href="/archives/">
+              <v-icon>archive</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="/about/">
+              <v-icon>account_circle</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/">
+              <v-icon>rss_feed</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/hexo-theme-insulin/#/">
+              <v-icon>insert_drive_file</v-icon>
+            </v-btn>
+          
+        </div>
+      </div>    
+    </div>
+  </v-col>  
+  <v-col cols="4" align-self="end" class="d-none d-md-block">
+    <v-col align-self="end">
+      <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,true)"></v-text-field>
+    </v-col> 
+  </v-col>
+</v-row>
+
+                            <v-card class="elevation-2 post-card">
+    
+    
+        <div class="post-header">
+  <a class="post-header-title font-weight-medium" href="/33877/">Edge Chromium相关问题汇总</a>
+  <div class="post-header-meta">   
+    <span>
+      <v-icon color="">event</v-icon>
+      发布于:&nbsp;2020-07-15
+    </span>
+    <span>
+      <v-icon color="">event_available</v-icon>
+      更新于:&nbsp;2020-07-16
+    </span>
+    <span>
+      <v-icon color="">folder</v-icon>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+    </span>
+    
+    <span>
+      <v-icon color="">visibility</v-icon>
+      阅读次数:&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+    </span>
+    
+  </div>
+</div>
+
+    
+    
+    
+        <div class="adsense-contain">           
+            <!-- Banner Ads -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5888225880131847"
+                data-ad-slot="3949852758"
+                data-ad-format="auto"
+                data-full-width-responsive="true">
+            </ins>
+        </div>
+    
+    
+    <div class="post-content typo">
+        <p>在Windows 10 20H2版本中，之前一直处于测试阶段的Edge Chromium替换了原来的Edge成为了自带的浏览器。新Edge抛弃了原本的EdgeHTML内核改用Chromium内核，无论是外观还是用法上都更接近Chrome了，而且由于新Edge不是UWP应用，不存之前所说的<a href="https://garybear.cn/t-1358/" target="_blank" rel="noopener">回环问题</a>。今天在一番纠结后还是一狠心更新了20H2，就所遇到的问题在此进行一下整理。</p>
+<a id="more"></a>
+<h1 id="卸载Edge-Chromium"><a href="#卸载Edge-Chromium" class="headerlink" title="卸载Edge Chromium"></a>卸载Edge Chromium</h1><ul>
+<li>用管理员身份打开cmd或powershell</li>
+<li>输入<code>cd &quot;C:\Program Files (x86)\Microsoft\Edge\Application\{Edge版本号}\Installer&quot;</code>切换目录</li>
+<li>输入<code>setup.exe --uninstall --system-level --verbose-logging --force-uninstall</code></li>
+</ul>
+<h1 id="启用IE模式"><a href="#启用IE模式" class="headerlink" title="启用IE模式"></a>启用IE模式</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>打开<code>edge://flags/#edge-internet-explorer-integration</code>，<br>将<code>Enable IE Integration</code>选项设为<code>IE mode</code><br>兼容IE渲染目前在Edge Chromium中被取消了，可以通过添加命令<code>--ie-mode-test</code>来开启。<br>开启后在<code>设置及其他-更多工具</code>一栏中会出现<code>在Internet Explorer模式下打开站点</code></p>
+<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>参考：<a href="https://docs.microsoft.com/zh-cn/deployedge/edge-ie-mode" target="_blank" rel="noopener">在 IE 模式下使用 Microsoft Edge</a></p>
+
+    </div>
+    <!--文末结束语-->
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="fas fa-heart"></i> The End --- </div>
+    
+    <!--页脚广告-->
+    
+        <div class="adsense-contain">
+            <!-- Footer Ads -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5888225880131847"
+                data-ad-slot="2212253348"
+                data-ad-format="auto"
+                data-full-width-responsive="true">
+            </ins>
+        </div>
+    
+    <v-divider></v-divider>
+    
+    <div class="post-nav">             
+        
+            <div class="post-nav-button float-left">
+                <v-icon>chevron_left</v-icon>
+                <a class="font-weight-bold text-left" href="/33369/">
+                    修复Chrome下不蒜子的pv计数错误问题
+                </a>
+            </div>
+              
+          
+            <div class="post-nav-button float-right">
+                <a class="font-weight-bold text-right" href="/57761/">      
+                    百姓无不怀念我鞑清
+                </a>
+                <v-icon>chevron_right</v-icon>
+            </div>
+        
+    </div>
+</v-card>
+
+
+
+    <v-card class="comment-card elevation-2">
+        <v-tabs v-model="commentTab"  id="comment-tabs" active-class="active-comment-tab">
+            
+                <v-tab><span id="comment-tab-0">gitalk</span></v-tab>
+            
+                <v-tab><span id="comment-tab-1">valine</span></v-tab>
+            
+                <v-tab><span id="comment-tab-2">livere</span></v-tab>
+            
+        </v-tabs>
+        <v-tabs-items v-model="commentTab" id="tabs-content" data=eyJ1c2UiOlsiZ2l0YWxrIiwidmFsaW5lIiwibGl2ZXJlIl0sImdpdGFsa19jbGllbnRfaWQiOiJmMzg2Njg4MjcwN2UxMmU3NGM0YSIsImdpdGFsa19jbGllbnRfc2VjcmV0IjoiMDRhMDM3YWZlZTAwYjk0ZTRiNTVlNDc0YWEyNzBhYzEzNmE4Yzk1MiIsImdpdGFsa19yZXBvIjoia2IxMDAwZnguZ2l0aHViLmlvIiwiZ2l0YWxrX293bmVyIjoia2IxMDAwZngiLCJnaXRhbGtfc2lkX3R5cGUiOm51bGwsImdpdGFsa19kaXN0cmFjdGlvbkZyZWVNb2RlIjp0cnVlLCJkaXNxdXNfc2hvcnRuYW1lIjpudWxsLCJsaXZlcmVfZGF0YV91aWQiOiJNVEF5TUM4ME9USTJPUzh5TlRjMk13PT0iLCJ2YWxpbmVfbGVhbmNsb3VkX2FwcF9pZCI6IjlKM0g1VDBDYVZWS3Z5cGJwdUZMYnE4ZC1nekd6b0hzeiIsInZhbGluZV9sZWFuY2xvdWRfYXBwX2tleSI6IjdLWEY1eWlLaFhna2t3TzFyZXZlOFhSbCIsInZhbGluZV9vcHRpb24iOnsicGxhY2Vob2xkZXIiOiLor7Tngrnku4DkuYgifSwiY2hhbmd5YW5fYXBwX2lkIjpudWxsLCJjaGFuZ3lhbl9hcHBfa2V5IjpudWxsLCJjaGFuZ3lhbl9zaWRfdHlwZSI6bnVsbH0= >
+            
+                <v-tab-item eager=true>
+                    
+                        <div id="gitalk-container"></div>
+                    
+                </v-tab-item>
+            
+                <v-tab-item eager=true>
+                    
+                        <div id="vcomments"></div>
+                    
+                </v-tab-item>
+            
+                <v-tab-item eager=true>
+                    
+                        <div id="lv-container" data-id="city" data-uid="MTAyMC80OTI2OS8yNTc2Mw=="></div>
+                    
+                </v-tab-item>
+            
+        </v-tabs-items>
+    </v-card>
+
+        
+                            <div id="mobile-footer" class="d-block d-md-none">
+                                <v-divider></v-divider>
+                                <div id="mobile-footer-content">
+                                    <span>Theme: <a href="https://github.com/kb1000fx/hexo-theme-insulin" target="_blank" rel="noopener">Insulin</a> &nbsp; Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span><br>
+                                    <span> &copy; 2015 - 2021 机智小蜗熊</span>
+                                </div>
+                            </div>                   
+                        </v-col>                                            
+                    </v-row>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+        <script data-ad-client="ca-pub-5888225880131847" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+    
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144166423-1"></script>
+<script>
+  var host = window.location.hostname;
+  if (host != "localhost" || true == false) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144166423-1');
+  }
+</script>
+
+
+
+
+
+
+
+    
+    
+    
+        <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        
+            load: ['[tex]/mhchem'],
+        
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        
+            packages: {'[+]': ['mhchem']},
+        
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+          
+
+    
+    
+    
+    
+    <title>
+          
+            小蜗熊的笔记本
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content id="page">
+                <v-container fluid>
+                    <v-row>
+                        <v-col cols="2" class="d-none d-md-block">
+                            <div id="sidebar" class="float-right">
+    <a href="/" rel="home">
+        <v-avatar size=96>
+            <img id="logo" src="/images/avatar.webp">     
+        </v-avatar> 
+    </a>
+    <v-divider></v-divider>
+    <div class="mini-menu">
+        <v-btn icon href="/">
+            <v-icon>home</v-icon>
+        </v-btn>
+        <v-btn icon href="/categories/">
+            <v-icon>folder</v-icon>
+        </v-btn>
+        <v-btn icon href="/tags/">
+            <v-icon>bookmark</v-icon>
+        </v-btn>
+        <v-btn icon @click="SetNightMode">
+            <v-icon>{{ nightMode }}</v-icon>
+        </v-btn>
+    </div>
+    <v-list id="main-menu" class="font-weight-bold" flat>
+        
+            
+            <v-list-item href="/archives/" link>
+            <v-list-item-icon><v-icon>archive</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                归档
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="/about/" link>
+            <v-list-item-icon><v-icon>account_circle</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                关于
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="https://garybear.cn/" link>
+            <v-list-item-icon><v-icon>rss_feed</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                我的博客
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="https://garybear.cn/hexo-theme-insulin/#/" link>
+            <v-list-item-icon><v-icon>insert_drive_file</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                说明文档
+            </v-list-item-content>
+            </v-list-item>
+        
+    </v-list>
+    <v-divider></v-divider>
+    
+        <v-list id="sub-menu" class="font-weight-medium" dense>
+            
+                
+                    <v-list-item href="/categories/%E4%BB%A3%E7%A0%81/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="8" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>代码</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+                
+                    <v-list-item href="/categories/%E6%9D%82%E8%AE%B0/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="2" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>杂记</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+                
+                    <v-list-item href="/categories/%E9%AB%98%E6%95%B0/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="3" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>高数</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+                
+                    <v-list-item href="/categories/%E7%BA%BF%E4%BB%A3/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>线代</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+        </v-list>    
+    
+
+    <div id="footer">
+        <div class="footer-social">
+            
+                
+                <v-btn icon href="mailto:kb1000fx@gmail.com" target="_blank">
+                    <v-icon>fas fa-envelope</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://github.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-github</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://steamcommunity.com/profiles/76561198346798163" target="_blank">
+                    <v-icon>fab fa-steam</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://weibo.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-weibo</v-icon>
+                </v-btn>
+            
+        </div>
+        <v-divider></v-divider>
+        <div class="footer-content">
+            
+                <span id="busuanzi_container_site_uv" style="display: none;"> 
+                    总访客量 <span id="busuanzi_value_site_uv"></span>
+                </span>
+                <br>
+            
+            <span>Theme: <a href="https://github.com/kb1000fx/hexo-theme-insulin" target="_blank" rel="noopener">Insulin</a></span><br>
+            <span>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span><br>
+            <span>
+                &copy; 2015 - 2021 
+                机智小蜗熊
+            </span>
+        </div>
+    </div>
+</div>
+
+                        </v-col>
+                        <v-col cols="12" md="10">
+                            <v-row>
+  <v-col cols="12" md="8" align-self="end">
+    <div id="site-header">
+      <div id="site-title">
+        <a href="/" rel="home">小蜗熊的笔记本</a>
+      </div>
+      <div id="site-description">记录各种零碎的知识</div>
+      <div id="mobile-menu" class="d-block d-md-none">
+        <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-inner-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,true)"></v-text-field>
+        <div class="mobile-mini-menu">
+          <v-btn icon href="/">
+              <v-icon>home</v-icon>
+          </v-btn>
+          <v-btn icon href="/categories/">
+              <v-icon>folder</v-icon>
+          </v-btn>
+          <v-btn icon href="/tags/">
+              <v-icon>bookmark</v-icon>
+          </v-btn>
+          <v-btn icon @click="SetNightMode">
+              <v-icon>{{ nightMode }}</v-icon>
+          </v-btn>
+          
+            
+            <v-btn icon href="/archives/">
+              <v-icon>archive</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="/about/">
+              <v-icon>account_circle</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/">
+              <v-icon>rss_feed</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/hexo-theme-insulin/#/">
+              <v-icon>insert_drive_file</v-icon>
+            </v-btn>
+          
+        </div>
+      </div>    
+    </div>
+  </v-col>  
+  <v-col cols="4" align-self="end" class="d-none d-md-block">
+    <v-col align-self="end">
+      <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,true)"></v-text-field>
+    </v-col> 
+  </v-col>
+</v-row>
+
+                            <v-card class="elevation-2 index-card">
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-12-04
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E4%BB%A3%E7%A0%81/">代码></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/61547/">亚马逊Kindle优惠券强制幸运脚本</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          以此活动加油，读书人 30元电子书券免费领为例，通过多次发送post来强制获取亚马逊幸运用户优惠券。
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/61547/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-10-28
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E4%BB%A3%E7%A0%81/">代码></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/33369/">修复Chrome下不蒜子的pv计数错误问题</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          问题及原因Chrome 85+后访问使用不蒜子计数的页面会出现单页访问计数错误，原因在于更新后的Chrome将Referrer Policy默认修改为了strict-origin-when-cross-origin。使得不蒜子无法获取完整的URL而只能得到hostname主域，pv的数值因此变成了所以单页pv之和。
+解决方法添加元信息在网页的&lt;head&gt;&lt;/head&gt;标签中加入
+1&lt;meta name="referrer" content="no-referrer-when-downgrade"&gt;
+
+修改浏览器设置使用Chrome打开 chrome:/...
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/33369/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-07-15
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E4%BB%A3%E7%A0%81/">代码></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/33877/">Edge Chromium相关问题汇总</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          在Windows 10 20H2版本中，之前一直处于测试阶段的Edge Chromium替换了原来的Edge成为了自带的浏览器。新Edge抛弃了原本的EdgeHTML内核改用Chromium内核，无论是外观还是用法上都更接近Chrome了，而且由于新Edge不是UWP应用，不存之前所说的回环问题。今天在一番纠结后还是一狠心更新了20H2，就所遇到的问题在此进行一下整理。
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/33877/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-06-30
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E6%9D%82%E8%AE%B0/">杂记></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/57761/">百姓无不怀念我鞑清</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          一念我大清宅心仁厚，扬州十日军民和睦，嘉定三屠百姓归心；二念我大清文化昌明，金钱鼠尾高端优雅，四库全书传承经典；三念我大清君臣团结，臣称奴才君主敬重，君流汉血民族团结；四念我大清政治清明，前有和珅廉比包拯，后有慈禧可效武后；五念我大清军威雄壮，八旗子弟提笼架鸟，平推英夷威震天下；六念我大清国力雄厚，饿死家奴结交友邦，割地赔款万寿无疆。
+
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/57761/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-06-26
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E4%BB%A3%E7%A0%81/">代码></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/52966/">解决Android-x86无法进入图形界面的问题</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          在安装Android-x86后，由于nVidia显卡驱动的原因启动过程中可能会卡住无法进入图形界面。此时在需要在启动参数中添加nomodeset选项来禁用显卡。其他Linux系统中遇到同样的问题也可以使用此方法解决。
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/52966/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-05-23
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E6%9D%82%E8%AE%B0/">杂记></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/4312/">宰执议焉卿宜承祧</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          太宗谕：“宰执议焉，卿宜承祧”。帝曰：“吾为沪尹，何以适京为？”固欲辞也。太宗再谕：”此中枢之决。”帝遂诵林文忠诗，乃上京也。承位十数载，惟用三政：曰立市易均输于阙时，曰彰太宗宏谟于大宪，曰总厥人三德于众识。别有二事，日禁诸军从商贾事，实系戎戍至紧要所；又曰攻治江洪，然皆小事也。
+
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/4312/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2020-02-26
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+              <v-card flat color="secondary" tile class="index-article-header-tag  font-weight-medium">
+                
+                  <span class="index-article-header-tag-content">
+                    <v-icon>fas fa-tag</v-icon>
+                    <a rel="tag" href = /tags/Steam/ >Steam</a>
+                  </span>
+                
+              </v-card>
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E4%BB%A3%E7%A0%81/">代码></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/31893/">Steam商店浏览锁区游戏方法</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          此方式仅适用于国区商店里的软锁游戏，即游戏拥有国区定价(使用愿望单的方法可以付款)，但因为含有成人暴力等标签被国区偏好过滤掉的游戏。
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/31893/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2019-08-20
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E9%AB%98%E6%95%B0/">高数></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/6749/">定积分的几种换元法</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          一
+
+$$\int^b_a f(x) dx \quad \ce{\xlongequal{t=a+b-x}} \quad \int^b_a f(t)dt$$
+
+
+二
+
+$$\int^a_0 f(x) dx  \quad \ce{\xlongequal{xb=ta}} \quad \int^b_0 f(\frac{a}{b}t)\cdot\frac{a}{b}dt$$
+
+
+三 (周期函数)
+
+$$\int^{a+T}_a f(x) dx \quad \ce{\xlongequal{x=t+a}} \quad \int^T_0 f(t+a)dt$$
+
+
+四
+
+$$\int^b_a f(x) d...
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/6749/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2019-06-18
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E7%BA%BF%E4%BB%A3/">线代></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/5545/">递推法求三线型行列式的值</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          一般地，对于行列式
+$$D_n=\begin{vmatrix}  a &amp; b &amp;  &amp;  &amp; \\  c &amp; a &amp; b &amp;  &amp; \\   &amp; c &amp; {\cdot} &amp; {\cdot} &amp; \\   &amp;  &amp; {\cdot} &amp; {\cdot} &amp; b\\   &amp; &amp; &amp; c &amp; a\end{vmatrix}$$
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/5545/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+  
+    <article class="index-article">
+      
+      <div class="index-article-header">
+        <v-row no-gutters>
+          <v-col cols="auto">
+            <div class="index-article-header-date font-weight-medium">
+              2019-06-12
+            </div>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            
+          </v-col>
+        </v-row>
+        <span>
+          
+            <a class="index-article-header-category font-weight-bold" href="/categories/%E9%AB%98%E6%95%B0/">高数></a>
+           
+        </span> 
+        <a class="index-article-header-title font-weight-medium" href="/1435/">分步积分的表格法</a>
+      </div>
+      
+      <div class="index-article-content">
+        
+          表格法是计算复杂不定积分的方式之一，本质上是从分步积分法中归纳总结而来的。一般适用于计算幂函数与三角函数，幂函数与指数函数的组合积分。
+        
+      </div>
+      
+      <div class="index-article-readmore ">
+        <v-btn text href="/1435/">阅读更多</v-btn>
+      </div>
+      <v-divider></v-divider>
+    </article> 
+   
+</v-card>  
+
+
+  <div id="pagination" class="text-center">
+    <v-pagination 
+      v-model="currentPage" 
+      :length=2 
+      @input="PageChange" 
+      prev-icon="chevron_left"
+      next-icon="chevron_right"
+      color="secondary"
+    ></v-pagination>
+  </div>
+         
+                            <div id="mobile-footer" class="d-block d-md-none">
+                                <v-divider></v-divider>
+                                <div id="mobile-footer-content">
+                                    <span>Theme: <a href="https://github.com/kb1000fx/hexo-theme-insulin" target="_blank" rel="noopener">Insulin</a> &nbsp; Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span><br>
+                                    <span> &copy; 2015 - 2021 机智小蜗熊</span>
+                                </div>
+                            </div>                   
+                        </v-col>                                            
+                    </v-row>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+    
+        <script data-ad-client="ca-pub-5888225880131847" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+</body>
+</html>
